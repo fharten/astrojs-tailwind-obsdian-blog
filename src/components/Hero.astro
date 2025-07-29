@@ -1,0 +1,57 @@
+---
+
+---
+
+<head>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 120vh;
+    }
+    .image {
+      height: 50vh;
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      /* transition: transform 0.5s ease; */
+      /* transition: transform 0.5s ease-in-out; */
+    }
+    .scrolled .img-top {
+      transform: translateY(-30px);
+    }
+    .scrolled .img-bottom {
+      transform: translateY(30px);
+    }
+  </style>
+</head>
+<body>
+  <div class="relative h-screen flex flex-col overflow-hidden items-stretch bg-bg" id="wrapper">
+    <img src="/images/cyberstreet_top.jpg" class="image img-top" alt="Top Image" />
+    <img src="/images/cyberstreet_bottom.jpg" class="image img-bottom" alt="Bottom Image" />
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] w-full">
+      <p class="text-text text-center text-h2 leading-h2 tracking-h2">
+        <span class="text-text-muted text-p mr-5"># Phone </span>How to switch to GrapeheneOS
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const wrapper = document.getElementById('wrapper');
+      window.addEventListener('scroll', () => {
+        if (!wrapper) return;
+
+        if (window.scrollY > 10) {
+          wrapper.classList.add('scrolled');
+        } else {
+          wrapper.classList.remove('scrolled');
+        }
+      });
+    });
+  </script>
+</body>

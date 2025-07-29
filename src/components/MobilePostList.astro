@@ -1,0 +1,8 @@
+---
+import MobilePostSingle from './MobilePostSingle.astro';
+const arr = [1, 2, 3, 4];
+---
+
+<div class="w-full mt-20">
+  {arr.map((post) => <MobilePostSingle />)}
+</div>
