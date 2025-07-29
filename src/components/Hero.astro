@@ -4,13 +4,6 @@
 
 <head>
   <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      min-height: 120vh;
-    }
     .image {
       height: 50vh;
       width: 100%;
@@ -22,36 +15,35 @@
       /* transition: transform 0.5s ease-in-out; */
     }
     .scrolled .img-top {
-      transform: translateY(-30px);
+      transform: translateY(-80px);
     }
     .scrolled .img-bottom {
-      transform: translateY(30px);
+      transform: translateY(80px);
     }
   </style>
 </head>
 <body>
-  <div class="relative h-screen flex flex-col overflow-hidden items-stretch bg-bg" id="wrapper">
+  <div
+    class="relative h-screen flex flex-col overflow-hidden items-stretch bg-base rounded-sm mt-20"
+    id="wrapper"
+  >
     <img src="/images/cyberstreet_top.jpg" class="image img-top" alt="Top Image" />
     <img src="/images/cyberstreet_bottom.jpg" class="image img-bottom" alt="Bottom Image" />
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] w-full">
-      <p class="text-text text-center text-h2 leading-h2 tracking-h2">
-        <span class="text-text-muted text-p mr-5"># Phone </span>How to switch to GrapeheneOS
-      </p>
+    <div
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] w-full h-28 flex flex-col"
+    >
+      <div class="p-5">
+        <p class="mytext-base text-center h2">How to switch to GrapeheneOS</p>
+        <p class="mytext-muted p text-center">
+          this is a short summary to get attention. this is a short summary to get attention.
+        </p>
+      </div>
+      <div class="px-5 flex justify-between mt-auto">
+        <p class="mytext-muted p-small w-auto text-left">2025/07/25</p>
+        <p class="mytext-muted p-small w-auto text-right"># Phone</p>
+      </div>
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const wrapper = document.getElementById('wrapper');
-      window.addEventListener('scroll', () => {
-        if (!wrapper) return;
-
-        if (window.scrollY > 10) {
-          wrapper.classList.add('scrolled');
-        } else {
-          wrapper.classList.remove('scrolled');
-        }
-      });
-    });
-  </script>
+  <script src="/src/scripts/scrollanimation.ts"></script>
 </body>

@@ -1,3 +1,8 @@
+---
+import '../styles/fonts.css';
+import '../styles/global.css';
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,18 +12,12 @@
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
   </head>
-  <body class="bg-bg-dark">
+  <body class="bg-base m-0 min-h-screen overflow-x-hidden">
     <div id="container" class="max-w-sm md:max-w-6xl bg-bg mx-auto">
       <slot />
     </div>
+    <script>
+      import '../scripts/menu.ts';
+    </script>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

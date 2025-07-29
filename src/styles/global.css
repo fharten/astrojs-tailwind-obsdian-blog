@@ -7,7 +7,7 @@
   --bg: oklch(0.15 0.025 160);
   --bg-light: oklch(0.2 0.025 160);
   --text: oklch(0.96 0.05 160);
-  --text-muted: oklch(0.76 0.05 160);
+  --mytext-muted: oklch(0.76 0.05 160);
   --highlight: oklch(0.5 0.05 160);
   --border: oklch(0.4 0.05 160);
   --border-muted: oklch(0.3 0.05 160);
@@ -22,7 +22,7 @@
   --light-mode-bg: oklch(0.96 0.025 160);
   --light-mode-bg-light: oklch(1 0.025 160);
   --light-mode-text: oklch(0.15 0.05 160);
-  --light-mode-text-muted: oklch(0.4 0.05 160);
+  --light-mode-mytext-muted: oklch(0.4 0.05 160);
   --light-mode-highlight: oklch(1 0.05 160);
   --light-mode-border: oklch(0.6 0.05 160);
   --light-mode-border-muted: oklch(0.7 0.05 160);
@@ -67,7 +67,7 @@
     font-size: var(--font-size-h2);
     line-height: var(--line-height-h2);
     letter-spacing: var(--tracking-h2);
-    font-weight: 700;
+    font-weight: 550;
   }
   .p {
     font-size: var(--font-size-p);
@@ -79,6 +79,13 @@
     font-size: var(--font-size-p-small);
     line-height: var(--line-height-p-small);
     letter-spacing: var(--tracking-p-small);
+    font-weight: 400;
+  }
+
+  .p-xsmall {
+    font-size: var(--font-size-p-xsmall);
+    line-height: var(--line-height-p-xsmall);
+    letter-spacing: var(--tracking-p-xsmall);
     font-weight: 400;
   }
 
@@ -94,28 +101,28 @@
   }
 
   /* Text colors */
-  .text-base {
+  .mytext-base {
     color: var(--text);
   }
-  .text-muted {
-    color: var(--text-muted);
+  .mytext-muted {
+    color: var(--mytext-muted);
   }
-  .text-primary {
+  .mytext-primary {
     color: var(--primary);
   }
-  .text-secondary {
+  .mytext-secondary {
     color: var(--secondary);
   }
-  .text-danger {
+  .mytext-danger {
     color: var(--danger);
   }
-  .text-warning {
+  .mytext-warning {
     color: var(--warning);
   }
-  .text-success {
+  .mytext-success {
     color: var(--success);
   }
-  .text-info {
+  .mytext-info {
     color: var(--info);
   }
 
@@ -161,28 +168,28 @@
     background-color: var(--light-mode-bg-light);
   }
 
-  .light .text-base {
+  .light .mytext-base {
     color: var(--light-mode-text);
   }
-  .light .text-muted {
-    color: var(--light-mode-text-muted);
+  .light .mytext-muted {
+    color: var(--light-mode-mytext-muted);
   }
-  .light .text-primary {
+  .light .mytext-primary {
     color: var(--light-mode-primary);
   }
-  .light .text-secondary {
+  .light .mytext-secondary {
     color: var(--light-mode-secondary);
   }
-  .light .text-danger {
+  .light .mytext-danger {
     color: var(--light-mode-danger);
   }
-  .light .text-warning {
+  .light .mytext-warning {
     color: var(--light-mode-warning);
   }
-  .light .text-success {
+  .light .mytext-success {
     color: var(--light-mode-success);
   }
-  .light .text-info {
+  .light .mytext-info {
     color: var(--light-mode-info);
   }
 
