@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageWrapper from '../../layouts/PageWrapper.astro';
+import Header from '../../components/Header.astro';
+import '../../styles/fonts.css';
+import '../../styles/global.css';
+
+export function getStaticPaths() {
+  return [
+    { params: { category: 'os' } },
+    { params: { category: 'phone' } },
+    { params: { category: 'cloud' } },
+    { params: { category: 'selfhost' } },
+    { params: { category: 'opensource' } },
+    { params: { category: 'privacy' } },
+    { params: { category: 'email' } },
+    { params: { category: 'bigtech' } },
+  ];
+}
+
+const { category } = Astro.params;
+---
+
+<Layout>
+  <Header />
+  <PageWrapper>
+    <div class="mt-20">
+      <p class="mytext-base">{category}</p>
+    </div>
+  </PageWrapper>
+</Layout>

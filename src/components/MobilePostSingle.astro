@@ -1,6 +1,7 @@
 ---
 import { X } from '@lucide/astro';
 import { Plus } from '@lucide/astro';
+const { title, titleAppend, category, image, createdAt } = Astro.props;
 ---
 
 <div class="mx-5 mb-5 h-auto">
@@ -9,27 +10,33 @@ import { Plus } from '@lucide/astro';
       <Plus class="mytext-muted" size={18} />
     </div>
 
-    <p class="p-xsmall mytext-muted text-center w-4/6">OPENSOURCE@2025/07/27: ~</p>
+    <p class="p-xsmall mytext-muted text-center w-4/6">
+      {category}@{new Date(createdAt).toLocaleDateString()}: ~
+    </p>
     <div class="pr-2 w-1/6 flex justify-end">
       <X class="mytext-muted" size={18} />
     </div>
   </div>
   <div class="h-44 w-full overflow-hidden">
-    <img src="/images/output.jpg" alt="post image" class="object-cover" />
+    <img src={image} alt="post image" class="object-cover" />
   </div>
   <div class="h-44 bg-light p-5 flex flex-col justify-between rounded-b-sm">
     <div>
       <div class="flex">
         <p class="p-small mytext-muted mr-2">~</p>
-        <p class="h2 mytext-base">Switch to Linux</p>
+        <p class="h2 mytext-base">{title}</p>
       </div>
-      <div class="flex">
-        <p class="p-small mytext-muted mr-2">~</p>
-        <p class="h2 mytext-base">EndeavorOS install & config guide</p>
-      </div>
+      {
+        titleAppend && (
+          <div class="flex">
+            <p class="p-small mytext-muted mr-2">~</p>
+            <p class="h2 mytext-base">{titleAppend}</p>
+          </div>
+        )
+      }
     </div>
     <div class="justify-end flex">
-      <p class="p-xsmall mytext-muted mr-2"># OPENSOURCE</p>
+      <p class="p-xsmall mytext-muted mr-2"># {category}</p>
     </div>
   </div>
 </div>
