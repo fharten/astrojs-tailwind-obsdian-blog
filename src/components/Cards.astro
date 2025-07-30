@@ -1,0 +1,51 @@
+---
+import {
+  MonitorCog,
+  Cloudy,
+  Server,
+  Code,
+  Lock,
+  Mail,
+  Cctv,
+  Smartphone,
+  type Icon as IconType,
+} from '@lucide/astro';
+
+type CategorieItem = {
+  id: number;
+  name: string;
+  link: string;
+  icon?: typeof IconType;
+};
+
+const categories: CategorieItem[] = [
+  { id: 1, name: 'OS', link: 'os', icon: MonitorCog },
+  { id: 2, name: 'Phone', link: 'phone', icon: Smartphone },
+  { id: 3, name: 'Cloud', link: 'cloud', icon: Cloudy },
+  { id: 4, name: 'Selfhost', link: 'selfhost', icon: Server },
+  { id: 5, name: 'Open Source', link: 'opensource', icon: Code },
+  { id: 6, name: 'Privacy', link: 'privacy', icon: Lock },
+  { id: 7, name: 'Email', link: 'email', icon: Mail },
+  { id: 8, name: 'Big Tech', link: 'bigtech', icon: Cctv },
+];
+---
+
+<div class="mt-20 flex justify-center">
+  <div class="grid grid-cols-2 gap-10">
+    {
+      categories.map((cat) => (
+        <a href={`/categories?${cat.link}`} class="w-full h-full">
+          {/* <div class="bg-red-800 rounded-sm w-full h-full m-5 flex overflow-hidden justify-center items-center">
+            <p class="h1 mytext-base p-4 text-center z-10">{cat.name}</p>
+          </div> */}
+          <div class="size-32 md:size-48 col-span-1 rounded-sm bg-light flex justify-center items-center">
+            <div class="relative  w-full h-full flex overflow-hidden justify-center items-center">
+              {cat.icon && <cat.icon class="absolute text-black/20 top-6 -right-12" size={128} />}
+              <p class="h1 mytext-base p-4 text-center z-10">{cat.name}</p>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</div>

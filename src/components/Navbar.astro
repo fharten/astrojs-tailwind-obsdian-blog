@@ -3,15 +3,15 @@ import { Menu, X } from '@lucide/astro';
 ---
 
 <div class="w-full fixed top-0 z-50">
-  <div>
-    <div class="hidden md:flex justify-center items-center">
-      <div class="w-1/3 flex justify-center">
+  <div class="md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
+    <div class="hidden md:grid grid-cols-3 justify-center items-center">
+      <div class="col-span-1 flex justify-start">
         <h1 class="font-heading mytext-base p-small py-10 text-center">CATEGORIES</h1>
       </div>
-      <div class="w-1/3">
+      <div class="col-span-1">
         <h1 class="font-heading h1 mytext-base py-10 text-center">OFF THE GRID</h1>
       </div>
-      <div class="w-1/3 flex justify-center">
+      <div class="col-span-1 flex justify-end">
         <h1 class="font-heading mytext-base p-small py-10 text-center">WHY</h1>
       </div>
     </div>
@@ -20,8 +20,8 @@ import { Menu, X } from '@lucide/astro';
   <div class="flex p-5 mb-5 md:hidden">
     <h1 class="text-left mytext-base font-heading h2 flex-1">OFF THE GRID</h1>
     <div id="hamburger">
-      <Menu class="mytext-muted mr-10" id="burger-button" />
-      <X class="mytext-muted mr-10 hidden" id="burger-close-button" />
+      <Menu class="mytext-muted" id="burger-button" />
+      <X class="mytext-muted hidden" id="burger-close-button" />
     </div>
   </div>
 </div>

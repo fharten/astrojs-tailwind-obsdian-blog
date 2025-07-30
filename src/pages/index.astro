@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import '../styles/fonts.css';
 import '../styles/global.css';
+import PageWrapper from '../layouts/PageWrapper.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -12,6 +13,8 @@ import '../styles/global.css';
 
 <Layout>
   <Header />
-  <Hero />
-  <MobilePostList />
+  <PageWrapper>
+    <Hero />
+    <MobilePostList />
+  </PageWrapper>
 </Layout>
