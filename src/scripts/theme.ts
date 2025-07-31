@@ -3,13 +3,8 @@ export function toggleTheme() {
   const isLight = root.classList.toggle('light');
   localStorage.setItem('theme', isLight ? 'light' : 'dark');
 
-  if (isLight) {
-    document.getElementById('moon-icon')!.classList.add('hidden');
-    document.getElementById('sun-icon')!.classList.remove('hidden');
-  } else {
-    document.getElementById('moon-icon')!.classList.remove('hidden');
-    document.getElementById('sun-icon')!.classList.add('hidden');
-  }
+  document.querySelectorAll('.moon-icon').forEach((el) => el.classList.toggle('hidden', isLight));
+  document.querySelectorAll('.sun-icon').forEach((el) => el.classList.toggle('hidden', !isLight));
 }
 
 export function loadSavedTheme() {
@@ -17,4 +12,11 @@ export function loadSavedTheme() {
   if (saved === 'light') {
     document.documentElement.classList.add('light');
   }
+
+  document
+    .querySelectorAll('.moon-icon')
+    .forEach((el) => el.classList.toggle('hidden', saved === 'light'));
+  document
+    .querySelectorAll('.sun-icon')
+    .forEach((el) => el.classList.toggle('hidden', saved !== 'light'));
 }
