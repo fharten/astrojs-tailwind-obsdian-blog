@@ -1,5 +1,6 @@
 ---
-import { ArrowRight, Sun, Moon } from '@lucide/astro';
+import { ArrowRight } from '@lucide/astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 const pages = ['categories', 'why', 'imprint', 'privacy'];
 const currentPath = Astro.url.pathname;
@@ -25,13 +26,7 @@ const currentPath = Astro.url.pathname;
       })
     }
     <div class="mt-auto flex justify-end absolute bottom-10 right-5">
-      <button
-        id="theme-toggle"
-        onclick="import('/src/scripts/theme.ts').then(m => m.toggleTheme())"
-      >
-        <Moon id="moon-icon" class="w-5 h-5 mytext-base hidden" />
-        <Sun id="sun-icon" class="w-5 h-5 mytext-base" />
-      </button>
+      <ThemeToggle />
     </div>
   </div>
 </div>
