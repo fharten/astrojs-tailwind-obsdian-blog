@@ -8,14 +8,16 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<div class="w-full mt-20">
+<div class="w-full pt-28">
   {
     posts.map((post: BlogPost) => (
       <MobilePostSingle
         title={post.data.title}
         titleAppend={post.data.titleAppend}
+        slug={post.data.slug}
         image={post.data.image}
         category={post.data.category}
+        categoryLink={post.data.categoryLink}
         createdAt={post.data.pubDate}
       />
     ))

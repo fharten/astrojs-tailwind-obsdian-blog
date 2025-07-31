@@ -1,9 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PageWrapper from '../../layouts/PageWrapper.astro';
 import Header from '../../components/Header.astro';
 import '../../styles/fonts.css';
 import '../../styles/global.css';
+import MobilePostSingle from '../../components/MobilePostSingle.astro';
 
 export function getStaticPaths() {
   return [
@@ -19,13 +21,29 @@ export function getStaticPaths() {
 }
 
 const { category } = Astro.params;
+
+const posts = (await getCollection('blog'))
+  .filter((post) => post.data.categoryLink === category)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <Layout>
   <Header />
   <PageWrapper>
-    <div class="mt-20">
-      <p class="mytext-base">{category}</p>
+    <div class="w-full pt-28">
+      {
+        posts.map((post) => (
+          <MobilePostSingle
+            title={post.data.title}
+            titleAppend={post.data.titleAppend}
+            slug={post.data.slug}
+            image={post.data.image}
+            category={post.data.category}
+            categoryLink={post.data.categoryLink}
+            createdAt={post.data.pubDate}
+          />
+        ))
+      }
     </div>
   </PageWrapper>
 </Layout>
