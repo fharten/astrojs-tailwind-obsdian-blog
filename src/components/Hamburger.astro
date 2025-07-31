@@ -1,18 +1,18 @@
 ---
-import { ArrowRight } from '@lucide/astro';
+import { ArrowRight, Sun, Moon } from '@lucide/astro';
 
 const pages = ['categories', 'why', 'imprint', 'privacy'];
 const currentPath = Astro.url.pathname;
 ---
 
 <div class="hidden h-screen w-full z-50" id="nav-links">
-  <div class="w-5/6 mx-auto pt-20">
+  <div class="w-5/6 flex flex-col mx-auto pt-20">
     <hr class="border-base" />
     {
       pages.map((page) => {
         const isActive = currentPath === `/${page}`;
         return (
-          <div class={`h-full ${isActive ? 'bg-light' : ''}`}>
+          <div class={`${isActive ? 'bg-light' : ''}`}>
             <div class="py-5">
               <a href={`/${page}`} class="flex">
                 <p class="mytext-base h1 flex-1">{page.toUpperCase()}</p>
@@ -24,5 +24,18 @@ const currentPath = Astro.url.pathname;
         );
       })
     }
+    <div class="mt-auto flex justify-end absolute bottom-10 right-5">
+      <button
+        id="theme-toggle"
+        onclick="import('/src/scripts/theme.ts').then(m => m.toggleTheme())"
+      >
+        <Moon id="moon-icon" class="w-5 h-5 mytext-base hidden" />
+        <Sun id="sun-icon" class="w-5 h-5 mytext-base" />
+      </button>
+    </div>
   </div>
 </div>
+<script>
+  import { loadSavedTheme } from '../scripts/theme.ts';
+  loadSavedTheme();
+</script>

@@ -203,8 +203,4 @@
   .light .highlight {
     background-color: var(--light-mode-highlight);
   }
-
-  .pixelated {
-    image-rendering: pixelated;
-  }
 }

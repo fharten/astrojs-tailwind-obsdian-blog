@@ -6,19 +6,27 @@ import { Menu, X } from '@lucide/astro';
   <div class="md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
     <div class="hidden md:grid grid-cols-3 justify-center items-center">
       <div class="col-span-1 flex justify-start">
-        <h1 class="font-heading mytext-base p-small py-10 text-center">CATEGORIES</h1>
+        <a href="/categories">
+          <h1 class="font-heading mytext-base p-small py-10 text-center">CATEGORIES</h1>
+        </a>
       </div>
       <div class="col-span-1">
-        <h1 class="font-heading h1 mytext-base py-10 text-center">OFF THE GRID</h1>
+        <a href="/">
+          <h1 class="font-heading h1 mytext-base py-10 text-center">OFF THE GRID</h1>
+        </a>
       </div>
       <div class="col-span-1 flex justify-end">
-        <h1 class="font-heading mytext-base p-small py-10 text-center">WHY</h1>
+        <a href="/why">
+          <h1 class="font-heading mytext-base p-small py-10 text-center">WHY</h1>
+        </a>
       </div>
     </div>
   </div>
 
   <div class="flex p-5 mb-5 md:hidden">
-    <h1 class="text-left mytext-base font-heading h2 flex-1">OFF THE GRID</h1>
+    <a href="/" class="flex-1">
+      <h1 class="text-left mytext-base font-heading h2">OFF THE GRID</h1>
+    </a>
     <div id="hamburger">
       <Menu class="mytext-muted" id="burger-button" />
       <X class="mytext-muted hidden" id="burger-close-button" />
