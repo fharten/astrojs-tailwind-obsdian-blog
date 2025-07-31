@@ -11,6 +11,7 @@ const blog = defineCollection({
     title: z.string(),
     titleAppend: z.optional(z.string()),
     slug: z.string(),
+    editorsChoice: z.boolean(),
     category: z.string(),
     categoryLink: z.string(),
     description: z.string(),
