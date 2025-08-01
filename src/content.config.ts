@@ -21,9 +21,16 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
   }),
 });
-// const dogs = defineCollection({
-//   /* ... */
-// });
+
+const why = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    titleAppend: z.string().optional(),
+    image: z.object({ url: z.string(), alt: z.string() }),
+    pubDate: z.coerce.date(),
+  }),
+});
 
 // 4. Export a single `collections` object to register your collection(s)
-export const collections = { blog };
+export const collections = { blog, why };

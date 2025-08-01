@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import SinglePostFullContent from '../../components/SinglePostFullContent.astro';
 import Header from '../../components/Header.astro';
 import PageWrapper from '../../layouts/PageWrapper.astro';
+import Footer from '../../components/Footer.astro';
 
 const { params } = Astro;
 const slug = params.post;
@@ -38,4 +39,5 @@ export async function getStaticPaths() {
       content={post.rendered}
     />
   </PageWrapper>
+  <Footer />
 </Layout>

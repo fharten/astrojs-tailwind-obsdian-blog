@@ -1,0 +1,26 @@
+---
+import { getEntry } from 'astro:content';
+import WhyComponent from '../components/WhyComponent.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import PageUpArrow from '../components/PageUpArrow.astro';
+import Layout from '../layouts/Layout.astro';
+import PageWrapper from '../layouts/PageWrapper.astro';
+
+const whyText = await getEntry('why', 'why');
+---
+
+<Layout>
+  <Header />
+  <PageUpArrow />
+  <PageWrapper>
+    <WhyComponent
+      title={whyText?.data.title}
+      titleAppend={whyText?.data.titleAppend}
+      image={whyText?.data.image}
+      createdAt={whyText?.data.pubDate}
+      content={whyText?.rendered}
+    />
+  </PageWrapper>
+  <Footer />
+</Layout>
