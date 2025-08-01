@@ -21,7 +21,7 @@ const { title, titleAppend, category, categoryLink, slug, image, createdAt } = A
   </div>
   <a href=`/posts/${slug}`>
     <div class="h-44 w-full overflow-hidden">
-      <img src={image} alt="post image" class="object-cover" />
+      <img src={image.url} alt={image.alt} class="object-cover" />
     </div>
   </a>
   <a href=`/posts/${slug}`>

@@ -25,6 +25,10 @@ const { category } = Astro.params;
 const posts = (await getCollection('blog'))
   .filter((post) => post.data.categoryLink === category)
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+// const posts = await getCollection('blog', ({ data }) => {
+//   return data.categoryLink === category;
+// });
 ---
 
 <Layout>

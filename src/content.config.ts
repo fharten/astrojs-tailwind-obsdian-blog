@@ -9,13 +9,14 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog/posts' }),
   schema: z.object({
     title: z.string(),
-    titleAppend: z.optional(z.string()),
+    titleAppend: z.string().optional(),
     slug: z.string(),
-    editorsChoice: z.boolean(),
+    editorsChoice: z.boolean().optional(),
+    hero: z.boolean().optional(),
     category: z.string(),
     categoryLink: z.string(),
     description: z.string(),
-    image: z.string(),
+    image: z.object({ url: z.string(), alt: z.string() }),
     pubDate: z.coerce.date(),
   }),
 });

@@ -1,5 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
 
+const posts = (await getCollection('blog'))
+  .filter((post) => post.data.hero === true)
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+const {
+  title,
+  titleAppend,
+  description,
+  category,
+  categoryLink,
+  slug,
+  image,
+  pubDate: createdAt,
+} = posts[0]?.data;
 ---
 
 <head>
@@ -27,20 +42,20 @@
     class="relative h-screen flex flex-col overflow-hidden items-stretch bg-base rounded-sm mt-28"
     id="wrapper"
   >
-    <img src="/images/cyberstreet_top.jpg" class="image img-top" alt="Top Image" />
-    <img src="/images/cyberstreet_bottom.jpg" class="image img-bottom" alt="Bottom Image" />
+    <img src="/images/hero/top.jpg" class="image img-top" alt="Top Image" />
+    <img src="/images/hero/bottom.jpg" class="image img-bottom" alt="Bottom Image" />
     <div
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] w-full h-28 flex flex-col"
     >
       <div class="p-5">
-        <p class="mytext-base text-center h2">How to switch to GrapeheneOS</p>
+        <p class="mytext-base text-center h2">{title}</p>
         <p class="mytext-muted p text-center">
-          this is a short summary to get attention. this is a short summary to get attention.
+          {description}
         </p>
       </div>
       <div class="px-5 flex justify-between mt-auto">
-        <p class="mytext-muted p-small w-auto text-left">2025/07/25</p>
-        <p class="mytext-muted p-small w-auto text-right"># Phone</p>
+        <p class="mytext-muted p-small w-auto text-left">{createdAt.toLocaleDateString()}</p>
+        <p class="mytext-muted p-small w-auto text-right"># {category}</p>
       </div>
     </div>
   </div>

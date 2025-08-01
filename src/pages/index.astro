@@ -7,13 +7,17 @@ import PageWrapper from '../layouts/PageWrapper.astro';
 import '../styles/fonts.css';
 import '../styles/global.css';
 import DesktopEditorsChoice from '../components/DesktopEditorsChoice.astro';
+import DesktopPostList from '../components/DesktopPostList.astro';
+import PageUpArrow from '../components/PageUpArrow.astro';
 ---
 
 <Layout>
   <Header />
+  <PageUpArrow />
   <PageWrapper>
     <Hero />
     <MobilePostList />
     <DesktopEditorsChoice />
+    <DesktopPostList />
   </PageWrapper>
 </Layout>
