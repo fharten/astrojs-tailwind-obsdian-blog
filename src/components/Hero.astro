@@ -47,15 +47,19 @@ const {
     <div
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] w-full h-28 flex flex-col"
     >
-      <div class="p-5">
-        <p class="mytext-base text-center h2">{title}</p>
-        <p class="mytext-muted p text-center">
-          {description}
-        </p>
-      </div>
+      <a href={`/posts/${slug}`}>
+        <div class="p-5">
+          <p class="mytext-base text-center h2">{title}</p>
+          <p class="mytext-muted p text-center">
+            {description}
+          </p>
+        </div>
+      </a>
       <div class="px-5 flex justify-between mt-auto">
         <p class="mytext-muted p-small w-auto text-left">{createdAt.toLocaleDateString()}</p>
-        <p class="mytext-muted p-small w-auto text-right"># {category}</p>
+        <a href={`/categories/${categoryLink}`}>
+          <p class="mytext-muted p-small w-auto text-right"># {category}</p>
+        </a>
       </div>
     </div>
   </div>

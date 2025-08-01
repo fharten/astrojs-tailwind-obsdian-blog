@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SinglePostFullContent from '../../components/SinglePostFullContent.astro';
+import Header from '../../components/Header.astro';
+import PageWrapper from '../../layouts/PageWrapper.astro';
+
+const { params } = Astro;
+const slug = params.post;
+
+const posts = await getCollection('blog');
+const post = posts.find((p) => p.data.slug === slug);
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { post: post.data.slug },
+  }));
+}
+---
+
+<Layout>
+  <Header />
+  <PageWrapper>
+    <SinglePostFullContent
+      title={post.data.title}
+      titleAppend={post.data.titleAppend}
+      author={post.data.author}
+      slug={post.data.slug}
+      image={post.data.image}
+      category={post.data.category}
+      categoryLink={post.data.categoryLink}
+      createdAt={post.data.pubDate}
+      content={post.rendered}
+    />
+  </PageWrapper>
+</Layout>

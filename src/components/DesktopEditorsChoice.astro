@@ -9,12 +9,13 @@ const posts = (await getCollection('blog'))
 ---
 
 <h1 class="hidden md:flex h1 mytext-base pt-28 mb-5">EDITOR'S CHOICE</h1>
-<div class="hidden w-full md:flex md:gap-5">
+<div class="hidden w-full md:grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:gap-5">
   {
     posts.map((post: BlogPost) => (
       <DesktopPostSingle
         title={post.data.title}
         titleAppend={post.data.titleAppend}
+        author={post.data.author}
         slug={post.data.slug}
         image={post.data.image}
         category={post.data.category}

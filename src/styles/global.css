@@ -33,19 +33,19 @@
   --light-mode-success: oklch(0.5 0.05 160);
   --light-mode-info: oklch(0.5 0.05 260);
 
-  --font-size-h1: 20px;
+  --font-size-h1: 1.625rem;
   --line-height-h1: 120%;
   --tracking-h1: -0.015em;
-  --font-size-h2: 18px;
+  --font-size-h2: 1.375;
   --line-height-h2: 135%;
   --tracking-h2: -0.01em;
-  --font-size-p: 16px;
+  --font-size-p: 1.25rem;
   --line-height-p: 150%;
   --tracking-p: 0em;
-  --font-size-p-small: 14px;
+  --font-size-p-small: 1.125;
   --line-height-p-small: 150%;
   --tracking-p-small: 0em;
-  --font-size-p-xsmall: 12px;
+  --font-size-p-xsmall: 1rem;
   --line-height-p-xsmall: 170%;
   --tracking-p-xsmall: 0em;
 }
@@ -86,7 +86,7 @@
     font-size: var(--font-size-p-xsmall);
     line-height: var(--line-height-p-xsmall);
     letter-spacing: var(--tracking-p-xsmall);
-    font-weight: 400;
+    font-weight: 300;
   }
 
   /* Backgrounds */

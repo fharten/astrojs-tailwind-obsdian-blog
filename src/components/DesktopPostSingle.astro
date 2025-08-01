@@ -1,7 +1,7 @@
 ---
 import { X } from '@lucide/astro';
 import { Plus } from '@lucide/astro';
-const { title, titleAppend, category, categoryLink, slug, image, createdAt } = Astro.props;
+const { title, titleAppend, author, category, categoryLink, slug, image, createdAt } = Astro.props;
 ---
 
 <div class="mb-5 h-auto col-span-1">
@@ -11,9 +11,9 @@ const { title, titleAppend, category, categoryLink, slug, image, createdAt } = A
     </div>
 
     <p class="p-xsmall mytext-muted text-center w-4/6">
-      <a href=`/categories/${categoryLink}`>
-        {category}@{new Date(createdAt).toLocaleDateString()}: ~
-      </a>
+      <!-- <a href=`/categories/${categoryLink}`> -->
+      root@{new Date(createdAt).toLocaleDateString()}: ~
+      <!-- </a> -->
     </p>
     <div class="pr-2 w-1/6 flex justify-end">
       <X class="mytext-muted" size={18} />
@@ -27,7 +27,7 @@ const { title, titleAppend, category, categoryLink, slug, image, createdAt } = A
       <div class="w-1/2 bg-light p-5 flex flex-col justify-between rounded-b-sm">
         <div>
           <div class="flex">
-            <p class="p-small mytext-muted mr-2">~</p>
+            <!-- <p class="p-small mytext-muted mr-2">~</p> -->
             <p class="h2 mytext-base">{title}</p>
           </div>
           <!-- {
@@ -41,7 +41,7 @@ const { title, titleAppend, category, categoryLink, slug, image, createdAt } = A
         </div>
         <div class="justify-end flex">
           <a href=`/categories/${categoryLink}`>
-            <p class="p-xsmall mytext-muted mr-2"># {category}</p>
+            <p class="p-xsmall mytext-muted"># {category}</p>
           </a>
         </div>
       </div>

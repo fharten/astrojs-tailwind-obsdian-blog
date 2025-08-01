@@ -16,6 +16,7 @@ const posts = (await getCollection('blog')).sort(
         titleAppend={post.data.titleAppend}
         slug={post.data.slug}
         image={post.data.image}
+        author={post.data.author}
         category={post.data.category}
         categoryLink={post.data.categoryLink}
         createdAt={post.data.pubDate}
