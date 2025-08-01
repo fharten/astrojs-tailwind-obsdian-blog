@@ -6,7 +6,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         heading: ['"Boldonse"', 'sans-serif'],
-        sans: ['Butler', 'sans-serif'],
+        sans: ['Zodiak-Variable', 'sans-serif'],
       },
     },
   },
