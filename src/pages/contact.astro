@@ -1,20 +1,21 @@
-<div slot="head">
-  <title>Contact me| OTG</title>
-</div>
-<body>
-  <h1>Say Hi to me!</h1>
-  <form method="POST">
-    <div>
-      <input type="text" name="name" placeholder="Name" />
-    </div>
-    <div>
-      <input type="email" name="email" placeholder="Email" />
-    </div>
-    <div>
-      <textarea name="message" placeholder="Message"></textarea>
-    </div>
-    <div>
-      <button type="submit">Send</button>
-    </div>
-  </form>
-</body>
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import PageUpArrow from '../components/PageUpArrow.astro';
+import ContactComponent from '../components/ContactComponent.astro';
+import Layout from '../layouts/Layout.astro';
+import PageWrapper from '../layouts/PageWrapper.astro';
+---
+
+<Layout>
+  <Fragment slot="body">
+    <Header />
+    <PageUpArrow />
+    <PageWrapper>
+      <ContactComponent />
+    </PageWrapper>
+  </Fragment>
+  <Fragment slot="footer">
+    <Footer />
+  </Fragment>
+</Layout>

@@ -4,7 +4,7 @@ import { Moon, Sun } from '@lucide/astro';
 
 <button
   id="theme-toggle"
-  class="cursor-pointer"
+  class="cursor-pointer hover:scale-110 transition-all"
   onclick="import('/src/scripts/theme.ts').then(m => m.toggleTheme())"
 >
   <Moon class="moon-icon w-5 h-5 mytext-base hidden" />
