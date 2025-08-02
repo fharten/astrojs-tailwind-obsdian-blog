@@ -10,11 +10,11 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>OFF THE GRID</title>
+    <slot name="head" />
   </head>
   <body class="bg-base m-0 min-h-screen overflow-x-hidden">
     <!-- <div id="container" class="max-w-sm md:max-w-6xl bg-bg mx-auto"> -->
-    <slot />
+    <slot name="body" />
     <!-- </div> -->
     <script>
       import '../scripts/menu.ts';

@@ -11,16 +11,18 @@ const whyText = await getEntry('why', 'why');
 ---
 
 <Layout>
-  <Header />
-  <PageUpArrow />
-  <PageWrapper>
-    <WhyComponent
-      title={whyText?.data.title}
-      titleAppend={whyText?.data.titleAppend}
-      image={whyText?.data.image}
-      createdAt={whyText?.data.pubDate}
-      content={whyText?.rendered}
-    />
-  </PageWrapper>
-  <Footer />
+  <Fragment slot="body">
+    <Header />
+    <PageUpArrow />
+    <PageWrapper>
+      <WhyComponent
+        title={whyText?.data.title}
+        titleAppend={whyText?.data.titleAppend}
+        image={whyText?.data.image}
+        createdAt={whyText?.data.pubDate}
+        content={whyText?.rendered}
+      />
+    </PageWrapper>
+    <Footer />
+  </Fragment>
 </Layout>

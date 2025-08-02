@@ -11,13 +11,15 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
-  <Header />
-  <PageUpArrow />
-  <PageWrapper>
-    <Hero />
-    <MobilePostList />
-    <DesktopEditorsChoice />
-    <DesktopPostList />
-  </PageWrapper>
-  <Footer />
+  <Fragment slot="body">
+    <Header />
+    <PageUpArrow />
+    <PageWrapper>
+      <Hero />
+      <MobilePostList />
+      <DesktopEditorsChoice />
+      <DesktopPostList />
+    </PageWrapper>
+    <Footer />
+  </Fragment>
 </Layout>

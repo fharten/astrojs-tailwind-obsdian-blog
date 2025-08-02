@@ -6,7 +6,9 @@ import Footer from '../../components/Footer.astro';
 ---
 
 <Layout>
-  <Header />
-  <Cards />
-  <Footer />
+  <Fragment slot="body">
+    <Header />
+    <Cards />
+    <Footer />
+  </Fragment>
 </Layout>

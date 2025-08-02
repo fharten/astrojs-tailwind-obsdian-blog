@@ -3,6 +3,9 @@ const { title, titleAppend, content, author, category, categoryLink, slug, image
   Astro.props;
 ---
 
+<div slot="head">
+  <title>{title} | OTG</title>
+</div>
 <div class="pt-28">
   <div class="w-full h-72 md:h-96 overflow-hidden">
     <img src={image.url} alt={image.alt} class="w-full h-full object-cover" />

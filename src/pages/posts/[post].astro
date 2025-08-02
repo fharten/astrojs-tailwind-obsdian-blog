@@ -25,19 +25,21 @@ export async function getStaticPaths() {
 ---
 
 <Layout>
-  <Header />
-  <PageWrapper>
-    <SinglePostFullContent
-      title={post.data.title}
-      titleAppend={post.data.titleAppend}
-      author={post.data.author}
-      slug={post.data.slug}
-      image={post.data.image}
-      category={post.data.category}
-      categoryLink={post.data.categoryLink}
-      createdAt={post.data.pubDate}
-      content={post.rendered}
-    />
-  </PageWrapper>
-  <Footer />
+  <Fragment slot="body">
+    <Header />
+    <PageWrapper>
+      <SinglePostFullContent
+        title={post.data.title}
+        titleAppend={post.data.titleAppend}
+        author={post.data.author}
+        slug={post.data.slug}
+        image={post.data.image}
+        category={post.data.category}
+        categoryLink={post.data.categoryLink}
+        createdAt={post.data.pubDate}
+        content={post.rendered}
+      />
+    </PageWrapper>
+    <Footer />
+  </Fragment>
 </Layout>
