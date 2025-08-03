@@ -1,155 +1,222 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+@layer theme, base, components, utilities;
+@import './fonts.css';
+@import './theme.css' layer(theme);
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-body {
-	font-family: "Atkinson", sans-serif;
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
-}
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+  --bg-dark: oklch(0.1 0.025 160);
+  --bg: oklch(0.15 0.025 160);
+  --bg-light: oklch(0.2 0.025 160);
+  --text: oklch(0.96 0.05 160);
+  --mytext-muted: oklch(0.76 0.05 160);
+  --highlight: oklch(0.5 0.05 160);
+  --border: oklch(0.4 0.05 160);
+  --border-muted: oklch(0.3 0.05 160);
+  --primary: oklch(0.76 0.1 160);
+  --secondary: oklch(0.76 0.1 340);
+  --danger: oklch(0.7 0.05 30);
+  --warning: oklch(0.7 0.05 100);
+  --success: oklch(0.7 0.05 160);
+  --info: oklch(0.7 0.05 260);
+
+  --light-mode-bg-dark: oklch(0.92 0.025 160);
+  --light-mode-bg: oklch(0.96 0.025 160);
+  --light-mode-bg-light: oklch(1 0.025 160);
+  --light-mode-text: oklch(0.15 0.05 160);
+  --light-mode-mytext-muted: oklch(0.4 0.05 160);
+  --light-mode-highlight: oklch(1 0.05 160);
+  --light-mode-border: oklch(0.6 0.05 160);
+  --light-mode-border-muted: oklch(0.7 0.05 160);
+  --light-mode-primary: oklch(0.4 0.1 160);
+  --light-mode-secondary: oklch(0.4 0.1 340);
+  --light-mode-danger: oklch(0.5 0.05 30);
+  --light-mode-warning: oklch(0.5 0.05 100);
+  --light-mode-success: oklch(0.5 0.05 160);
+  --light-mode-info: oklch(0.5 0.05 260);
+
+  --font-size-h1: 1.625rem;
+  --line-height-h1: 120%;
+  --tracking-h1: -0.015em;
+  --font-size-h2: 1.375;
+  --line-height-h2: 135%;
+  --tracking-h2: -0.01em;
+  --font-size-p: 1.25rem;
+  --line-height-p: 150%;
+  --tracking-p: 0em;
+  --font-size-p-small: 1.125;
+  --line-height-p-small: 150%;
+  --tracking-p-small: 0em;
+  --font-size-p-xsmall: 1rem;
+  --line-height-p-xsmall: 170%;
+  --tracking-p-xsmall: 0em;
 }
 
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+@layer utilities {
+  .font-heading {
+    font-family: Boldonse, sans-serif;
+  }
+
+  .font-body {
+    font-family: Zodiak-Variable, sans-serif;
+  }
+}
+
+@layer components {
+  .h1 {
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    letter-spacing: var(--tracking-h1);
+    font-weight: 700;
+  }
+  .h2 {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    letter-spacing: var(--tracking-h2);
+    font-weight: 550;
+  }
+  .p {
+    font-size: var(--font-size-p);
+    line-height: var(--line-height-p);
+    letter-spacing: var(--tracking-p);
+    font-weight: 400;
+  }
+  .p-small {
+    font-size: var(--font-size-p-small);
+    line-height: var(--line-height-p-small);
+    letter-spacing: var(--tracking-p-small);
+    font-weight: 400;
+  }
+
+  .p-xsmall {
+    font-size: var(--font-size-p-xsmall);
+    line-height: var(--line-height-p-xsmall);
+    letter-spacing: var(--tracking-p-xsmall);
+    font-weight: 300;
+  }
+
+  /* Backgrounds */
+  .bg-base {
+    background-color: var(--bg);
+  }
+  .bg-dark {
+    background-color: var(--bg-dark);
+  }
+  .bg-light {
+    background-color: var(--bg-light);
+  }
+  .bg-highlight {
+    background-color: var(--highlight);
+  }
+
+  /* Text colors */
+  .mytext-base {
+    color: var(--text);
+  }
+  .mytext-muted {
+    color: var(--mytext-muted);
+  }
+  .mytext-primary {
+    color: var(--primary);
+  }
+  .mytext-secondary {
+    color: var(--secondary);
+  }
+  .mytext-danger {
+    color: var(--danger);
+  }
+  .mytext-warning {
+    color: var(--warning);
+  }
+  .mytext-success {
+    color: var(--success);
+  }
+  .mytext-info {
+    color: var(--info);
+  }
+
+  /* Borders */
+  .border-base {
+    border-color: var(--border);
+  }
+  .border-muted {
+    border-color: var(--border-muted);
+  }
+  .border-primary {
+    border-color: var(--primary);
+  }
+  .border-secondary {
+    border-color: var(--secondary);
+  }
+  .border-danger {
+    border-color: var(--danger);
+  }
+  .border-warning {
+    border-color: var(--warning);
+  }
+  .border-success {
+    border-color: var(--success);
+  }
+  .border-info {
+    border-color: var(--info);
+  }
+  .border-highlight {
+    border-color: var(--highlight);
+  }
+
+  /* Highlights */
+  .highlight {
+    background-color: var(--highlight);
+  }
+
+  /* Light mode variants (optional, scoped with a `.light` class or media query) */
+  .light .bg-base {
+    background-color: var(--light-mode-bg);
+  }
+  .light .bg-dark {
+    background-color: var(--light-mode-bg-dark);
+  }
+  .light .bg-light {
+    background-color: var(--light-mode-bg-light);
+  }
+  .light .bg-highlight {
+    background-color: var(--light-mode-highlight);
+  }
+
+  .light .mytext-base {
+    color: var(--light-mode-text);
+  }
+  .light .mytext-muted {
+    color: var(--light-mode-mytext-muted);
+  }
+  .light .mytext-primary {
+    color: var(--light-mode-primary);
+  }
+  .light .mytext-secondary {
+    color: var(--light-mode-secondary);
+  }
+  .light .mytext-danger {
+    color: var(--light-mode-danger);
+  }
+  .light .mytext-warning {
+    color: var(--light-mode-warning);
+  }
+  .light .mytext-success {
+    color: var(--light-mode-success);
+  }
+  .light .mytext-info {
+    color: var(--light-mode-info);
+  }
+
+  .light .border-base {
+    border-color: var(--light-mode-border);
+  }
+  .light .border-muted {
+    border-color: var(--light-mode-border-muted);
+  }
+  .light .border-highlight {
+    border-color: var(--light-mode-highlight);
+  }
+
+  .light .highlight {
+    background-color: var(--light-mode-highlight);
+  }
 }
