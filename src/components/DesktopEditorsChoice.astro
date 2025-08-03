@@ -1,7 +1,7 @@
 ---
 import type { BlogPost } from '../types/BlogPost';
 import { getCollection } from 'astro:content';
-import DesktopPostSingle from './DesktopPostSingle.astro';
+import DesktopPostSingle from './DesktopPostSingle';
 
 const posts = (await getCollection('blog'))
   .filter((post) => post.data.editorsChoice === true)

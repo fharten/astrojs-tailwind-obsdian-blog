@@ -1,7 +1,7 @@
 ---
-import { Menu, Search, X } from '@lucide/astro';
+import { Menu, Search, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle.astro';
-import SearchBar from './SearchBar.astro';
+import SearchBar from './SearchBar';
 ---
 
 <div>
@@ -35,11 +35,12 @@ import SearchBar from './SearchBar.astro';
           </a>
         </div>
         <div class="col-span-1 flex justify-end">
-          <button id="search" class="cursor-pointer hover:scale-110 transition-all">
-            <Search class="w-5 h-5 mytext-base" />
+          <button id="search-icon" class="cursor-pointer hover:scale-110 transition-all">
+            <Search client:load className="w-5 h-5 mytext-base" />
           </button>
         </div>
       </div>
+      <SearchBar client:load />
     </div>
 
     <div class="flex p-5 mb-5 md:hidden">
@@ -47,12 +48,11 @@ import SearchBar from './SearchBar.astro';
         <h1 class="text-left mytext-base font-heading h2">OFF THE GRID</h1>
       </a>
       <div id="hamburger">
-        <Menu id="hamburger-icon" class="mytext-muted" id="burger-button" />
-        <X class="mytext-muted hidden" id="burger-close-button" />
+        <Menu id="hamburger-icon" className="mytext-muted" id="burger-button" />
+        <X className="mytext-muted hidden" id="burger-close-button" />
       </div>
     </div>
 
-    <SearchBar />
     <script>
       import { loadSavedTheme } from '../scripts/theme.ts';
       loadSavedTheme();

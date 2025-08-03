@@ -1,5 +1,5 @@
 ---
-import { Moon, Sun } from '@lucide/astro';
+import { Moon, Sun } from 'lucide-react';
 ---
 
 <button
@@ -7,6 +7,6 @@ import { Moon, Sun } from '@lucide/astro';
   class="cursor-pointer hover:scale-110 transition-all"
   onclick="import('/src/scripts/theme.ts').then(m => m.toggleTheme())"
 >
-  <Moon class="moon-icon w-5 h-5 mytext-base hidden" />
-  <Sun class="sun-icon w-5 h-5 mytext-base" />
+  <Moon className="moon-icon w-5 h-5 mytext-base hidden" />
+  <Sun className="sun-icon w-5 h-5 mytext-base" />
 </button>
