@@ -1,12 +1,27 @@
-import { $searchQuery, setSearchQuery } from '../store/searchStore';
+import { useEffect, useRef } from 'react';
+import { useStore } from '@nanostores/react';
+import { setSearchQuery, $searchQuery } from '../store/searchStore';
+import { $isSearchBarOpen } from '../store/searchBarUI';
 import Button from './Button';
 
 export default function SearchBar() {
+  const isOpen = useStore($isSearchBarOpen);
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
-  console.log('SearchBar mounted');
+  // Reset input when closed
+  useEffect(() => {
+    if (!isOpen) {
+      setSearchQuery('');
+      if (inputRef.current) {
+        inputRef.current.value = '';
+      }
+    }
+    console.log(isOpen);
+  }, [isOpen]);
 
   return (
     <form
@@ -36,6 +51,7 @@ export default function SearchBar() {
           </svg>
         </div>
         <input
+          ref={inputRef}
           type="search"
           id="default-search"
           className="p-small mytext-base bg-light border-muted block w-full rounded-lg border p-4 ps-10"
