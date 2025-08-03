@@ -1,0 +1,53 @@
+---
+import { X } from '@lucide/astro';
+import { Plus } from '@lucide/astro';
+const { title, titleAppend, author, category, categoryLink, slug, image, createdAt } = Astro.props;
+---
+
+<div slot="head">
+  <title>{title} | OTG</title>
+</div>
+<div class="mx-5 mb-5 h-auto">
+  <div class="h-10 w-full bg-dark rounded-t-sm flex items-center justify-center">
+    <div class="pl-2 w-1/6">
+      <Plus class="mytext-muted" size={18} />
+    </div>
+
+    <p class="p-xsmall mytext-muted text-center w-4/6">
+      <!-- <a href=`/categories/${categoryLink}`> -->
+      root@{new Date(createdAt).toLocaleDateString()}: ~
+      <!-- </a> -->
+    </p>
+    <div class="pr-2 w-1/6 flex justify-end">
+      <X class="mytext-muted" size={18} />
+    </div>
+  </div>
+  <a href=`/blog/${slug}`>
+    <div class="h-44 w-full overflow-hidden">
+      <img src={image.url} alt={image.alt} class="object-cover" />
+    </div>
+  </a>
+  <a href=`/blog/${slug}`>
+    <div class="h-44 bg-light p-5 flex flex-col justify-between rounded-b-sm">
+      <div>
+        <div class="flex">
+          <p class="p-small mytext-muted mr-2">~</p>
+          <p class="h2 mytext-base">{title}</p>
+        </div>
+        {
+          titleAppend && (
+            <div class="flex">
+              <p class="p-small mytext-muted mr-2">~</p>
+              <p class="h2 mytext-base">{titleAppend}</p>
+            </div>
+          )
+        }
+      </div>
+      <div class="justify-end flex">
+        <a href=`/categories/${categoryLink}`>
+          <p class="p-xsmall mytext-muted"># {category}</p>
+        </a>
+      </div>
+    </div>
+  </a>
+</div>

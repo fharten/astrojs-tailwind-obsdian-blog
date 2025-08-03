@@ -1,0 +1,42 @@
+---
+import Button from './Button.astro';
+---
+
+<div slot="head">
+  <title>Contact me| OTG</title>
+</div>
+<div class="pt-28 px-4 mx-auto max-w-screen-md">
+  <h1 class="mb-4 h1 mytext-base text-center">Contact Me</h1>
+  <h2 class="mb-8 lg:mb-16 h2 mytext-muted text-center sm:h2">Please don't.</h2>
+  <form action="#" class="space-y-8">
+    <div>
+      <label for="email" class="block mb-2 mytext-muted p">Your email</label>
+      <input
+        type="email"
+        id="email"
+        class="shadow-sm border border-muted bg-light mytext-base p-small rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+        placeholder="name@offthegrid.com"
+        required
+      />
+    </div>
+    <div>
+      <label for="subject" class="block mb-2 mytext-muted p">Subject</label>
+      <input
+        type="text"
+        id="subject"
+        class="block p-3 w-full p-small mytext-base rounded-lg border border-muted bg-light shadow-sm focus:ring-primary-500 focus:border-primary-500"
+        placeholder="If you must. Say what you have to say."
+        required
+      />
+    </div>
+    <div class="sm:col-span-2">
+      <label for="message" class="block mb-2 p mytext-base">Your message</label>
+      <textarea
+        id="message"
+        rows="6"
+        class="block p-2.5 w-full p-small mytext-base rounded-lg shadow-sm border border-muted bg-light focus:ring-primary-500 focus:border-primary-500"
+        placeholder="Leave a comment..."></textarea>
+    </div>
+    <Button text="Send message" />
+  </form>
+</div>

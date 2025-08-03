@@ -1,0 +1,21 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import PageUpArrow from '../components/PageUpArrow.astro';
+import ContactComponent from '../components/ContactComponent.astro';
+import Layout from '../layouts/Layout.astro';
+import PageWrapper from '../layouts/PageWrapper.astro';
+---
+
+<Layout>
+  <Fragment slot="body">
+    <Header />
+    <PageUpArrow />
+    <PageWrapper>
+      <ContactComponent />
+    </PageWrapper>
+  </Fragment>
+  <Fragment slot="footer">
+    <Footer />
+  </Fragment>
+</Layout>

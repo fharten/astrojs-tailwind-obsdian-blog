@@ -1,6 +1,4 @@
-@layer theme, base, components, utilities;
-@import './fonts.css';
-@import './theme.css' layer(theme);
+@import 'tailwindcss';
 
 :root {
   --bg-dark: oklch(0.1 0.025 160);

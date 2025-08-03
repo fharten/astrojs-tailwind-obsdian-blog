@@ -1,27 +1,29 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Hero from '../components/Hero.astro';
+import MobilePostList from '../components/MobilePostList.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PageWrapper from '../layouts/PageWrapper.astro';
+import DesktopEditorsChoice from '../components/DesktopEditorsChoice.astro';
+import DesktopPostList from '../components/DesktopPostList.astro';
+import PageUpArrow from '../components/PageUpArrow.astro';
+import Footer from '../components/Footer.astro';
+
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
 <Layout>
-	<head>
-		<BaseHead slot='basehead' title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header slot='header' />
-		<main slot="body">
-			<div class="h-screen w-full">
-				<div class="pt-72">
-
-					<h1 class="mytext-base p">test OTG</h1>
-					<h1 class="mytext-base h1 font-heading">test OTG</h1>
-				</div>
-
-			</div>
-		</main>
-		<!-- <Footer slot='footer' /> -->
-	</body>
+  <BaseHead slot="basehead" title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  <Fragment slot="body">
+    <Header />
+    <PageUpArrow />
+    <PageWrapper>
+      <Hero />
+      <MobilePostList />
+      <DesktopEditorsChoice />
+      <DesktopPostList />
+    </PageWrapper>
+  </Fragment>
+  <Footer slot="footer" />
 </Layout>

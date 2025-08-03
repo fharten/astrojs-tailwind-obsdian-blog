@@ -1,0 +1,50 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import PageWrapper from '../../layouts/PageWrapper.astro';
+import Footer from '../../components/Footer.astro';
+
+const { params } = Astro;
+const slug = params.post;
+
+const posts = await getCollection('blog');
+const post = posts.find((p) => p.data.slug === slug);
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { post: post.data.slug },
+  }));
+}
+
+const { Content } = await render(post);
+---
+
+<Layout>
+  <Fragment slot="body">
+    <Header />
+    <PageWrapper>
+      <BlogPost
+        title={post.data.title}
+        titleAppend={post.data.titleAppend}
+        author={post.data.author}
+        slug={post.data.slug}
+        image={post.data.image}
+        category={post.data.category}
+        categoryLink={post.data.categoryLink}
+        createdAt={post.data.pubDate}
+      >
+        <Content />
+      </BlogPost>
+    </PageWrapper>
+  </Fragment>
+  <Fragment slot="footer">
+    <Footer />
+  </Fragment>
+</Layout>
