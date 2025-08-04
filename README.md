@@ -1,62 +1,75 @@
-# Astro Starter Kit: Blog
+<p align="center">
+  <a href="https://astro.build/" target="_blank">
+    <img src="https://img.shields.io/badge/Astro-1a1a1a?style=for-the-badge&logo=astro&logoColor=ffffff" />
+  </a>
+  <a href="https://www.typescriptlang.org/" target="_blank">
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  </a>
+  <a href="https://reactjs.org/" target="_blank">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  </a>
+<a href="https://github.com/nanostores/nanostores" target="_blank">
+  <img src="https://img.shields.io/badge/Nano_Stores-333333?style=for-the-badge&logoColor=white" />
+</a>
+  </a>
+  <a href="https://obsidian.md/" target="_blank">
+    <img src="https://img.shields.io/badge/Obsidian-483699?style=for-the-badge&logo=obsidian&logoColor=white" />
+  </a>
+</p>
+
+## About This Project
+
+My goal was to write blog posts directly in Obsidian and automatically integrate them into the blog.
+
+I chose AstroJS because it works seamlessly with markdown files, the file format used by Obsidian.
+The blog features a 'techy' aesthetic, fitting to the blog's theme.
+
+Nano Stores was a perfect fit as it is a lightweight state manager, allowing me to store and modify all posts in one state, enabling features like search implementation.
+
+## Tech stack
+
+<ul>
+  <li>
+    Astro
+  </li>
+    <li>
+    TypeScript
+  </li>
+    <li>
+    React
+  </li>
+  <li>
+    Tailwind CSS
+  </li>
+  <li>
+    Nano Stores
+  </li>
+    <li>
+    Obsidian
+  </li>
+</ul>
+
+## Setup
+
+### Prerequisites
+
+<ul>
+<li><a href="https://git-scm.com/" rel="nofollow">Git</a></li>
+<li><a href="https://nodejs.org/en" rel="nofollow">Node.js</a></li>
+<li><a href="https://www.npmjs.com/" rel="nofollow">npm</a></li>
+</ul>
+
+### Installation
 
 ```sh
-npm create astro@latest -- --template blog
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Launch project
 
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```sh
+npm run dev
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
