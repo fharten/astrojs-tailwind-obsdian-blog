@@ -1,7 +1,7 @@
 ---
 title: 'WHY?'
 titleAppend: 'Why do we want to get off the grid?'
-pubDate: 'Aug Fr 2025'
+pubDate: '2025-08-03'
 image:
   url: '/images/output.jpg'
   alt: 'Adventure time...'

@@ -28,4 +28,4 @@ const why = defineCollection({
   }),
 });
 
-export const collections = { blog };
+export const collections = { blog, why };

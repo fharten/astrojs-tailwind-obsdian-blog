@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useStore } from '@nanostores/react';
-import { $posts, loadPosts } from '../store/postStore';
+import { $posts, loadAllPosts } from '../store/postStore';
 import { $searchQuery, setSearchQuery } from '../store/searchStore';
 import type { BlogPosts, BlogPost } from '../types/BlogPost';
 import DesktopPostSingle from './DesktopPostSingle';
@@ -10,7 +10,7 @@ export default function DesktopPostList({ allPosts }: { allPosts: BlogPosts }) {
   const searchQuery = useStore($searchQuery);
 
   useEffect(() => {
-    if ($posts.get().length === 0) loadPosts(allPosts);
+    if ($posts.get().length === 0) loadAllPosts(allPosts);
   }, []);
 
   const filteredPosts = storePosts.filter((post) => {

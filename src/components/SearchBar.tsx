@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useStore } from '@nanostores/react';
-import { setSearchQuery, $searchQuery } from '../store/searchStore';
+import { setSearchQuery } from '../store/searchStore';
 import { $isSearchBarOpen } from '../store/searchBarUI';
-import Button from './Button';
 
 export default function SearchBar() {
   const isOpen = useStore($isSearchBarOpen);
@@ -12,7 +11,6 @@ export default function SearchBar() {
     setSearchQuery(e.target.value);
   };
 
-  // Reset input when closed
   useEffect(() => {
     if (!isOpen) {
       setSearchQuery('');
@@ -20,12 +18,11 @@ export default function SearchBar() {
         inputRef.current.value = '';
       }
     }
-    console.log(isOpen);
   }, [isOpen]);
 
   return (
     <form
-      className="mx-auto -mt-4 hidden w-1/2"
+      className={`mx-auto -mt-4 w-1/2 ${!isOpen ? 'hidden' : ''}`}
       id="search-bar"
       onSubmit={(e) => e.preventDefault()}
     >

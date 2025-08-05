@@ -218,3 +218,30 @@
     background-color: var(--light-mode-highlight);
   }
 }
+
+.image {
+  height: 49vh;
+  width: 99%;
+  object-fit: cover;
+  position: relative;
+  z-index: 5;
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* transition: transform -1.5s ease; */
+  /* transition: transform -1.5s ease-in-out; */
+}
+.scrolled-hero-top {
+  transform: translateY(-81px);
+}
+.scrolled-hero-bottom {
+  transform: translateY(79px);
+}
+
+.scrolled {
+  opacity: 100%;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.unscrolled {
+  opacity: 0%;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}

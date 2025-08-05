@@ -1,0 +1,38 @@
+---
+import { getEntry } from 'astro:content';
+import WhyComponent from '../components/WhyComponent';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import PageUpArrow from '../components/PageUpArrow';
+import Layout from '../layouts/Layout.astro';
+import PageWrapper from '../layouts/PageWrapper.astro';
+import { serializeWhy } from '../utils/serializeWhy';
+import { render } from 'astro:content';
+
+const rawWhy = await getEntry('why', 'why');
+if (!rawWhy) {
+  throw new Error(`Page not found.`);
+}
+
+const whyText = serializeWhy(rawWhy);
+const renderResult = await render(rawWhy);
+if (!renderResult || !renderResult.Content) {
+  throw new Error(`Failed to render content for Why page.`);
+}
+
+const { Content } = renderResult;
+---
+
+<Layout>
+  <Fragment slot="body">
+    <Header />
+    <PageUpArrow />
+    <PageWrapper>
+      <WhyComponent whyContent={whyText} />
+      <Content />
+    </PageWrapper>
+  </Fragment>
+  <Fragment slot="footer">
+    <Footer />
+  </Fragment>
+</Layout>

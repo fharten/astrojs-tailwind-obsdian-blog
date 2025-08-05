@@ -2,11 +2,11 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PageWrapper from '../../layouts/PageWrapper.astro';
-import Header from '../../components/Header.astro';
-import MobilePostSingle from '../../components/MobilePostSingle.astro';
-import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.tsx';
+import Footer from '../../components/Footer.tsx';
 import type { BlogPost } from '../../types/BlogPost';
 import DesktopPostSingle from '../../components/DesktopPostSingle';
+import { serializePosts } from '../../utils/serializePosts';
 
 export function getStaticPaths() {
   return [
@@ -27,54 +27,20 @@ const posts = (await getCollection('blog'))
   .filter((post) => post.data.categoryLink === category)
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
-// const posts = await getCollection('blog', ({ data }) => {
-//   return data.categoryLink === category;
-// });
+const categoryPosts = serializePosts(posts);
+
+console.log(categoryPosts);
 ---
 
 <Layout>
   <Fragment slot="body">
     <Header />
     <PageWrapper>
-      <div class="w-full pt-28 md:hidden">
+      <div class="w-full pt-28 md:grid md:grid-cols-1 md:gap-5 lg:grid-cols-2 xl:grid-cols-3">
         {
-          posts.map((post: BlogPost) => (
-            <div>
-              <div slot="head">
-                <title>{post.data.category} | OTG</title>
-              </div>
-              <MobilePostSingle
-                title={post.data.title}
-                titleAppend={post.data.titleAppend}
-                slug={post.data.slug}
-                image={post.data.image}
-                category={post.data.category}
-                categoryLink={post.data.categoryLink}
-                createdAt={post.data.pubDate}
-              />
-            </div>
-          ))
-        }
-      </div>
-      <div
-        class="hidden w-full pt-28 md:grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:gap-5"
-      >
-        {
-          posts.map((post: BlogPost) => (
-            <div>
-              <div slot="head">
-                <title>{post.data.category} | OTG</title>
-              </div>
-              <DesktopPostSingle
-                title={post.data.title}
-                titleAppend={post.data.titleAppend}
-                author={post.data.author}
-                slug={post.data.slug}
-                image={post.data.image}
-                category={post.data.category}
-                categoryLink={post.data.categoryLink}
-                createdAt={post.data.pubDate}
-              />
+          categoryPosts.map((post: BlogPost) => (
+            <div class="mt-10">
+              <DesktopPostSingle client:load post={post} key={post.id} />
             </div>
           ))
         }
@@ -84,4 +50,4 @@ const posts = (await getCollection('blog'))
   <Fragment slot="footer">
     <Footer />
   </Fragment>
-</Layout>
+</Layout>;
