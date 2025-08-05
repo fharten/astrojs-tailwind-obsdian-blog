@@ -1,13 +1,26 @@
 ---
 import { getEntry } from 'astro:content';
-import WhyComponent from '../components/WhyComponent.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import PageUpArrow from '../components/PageUpArrow.astro';
+import WhyComponent from '../components/WhyComponent';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import PageUpArrow from '../components/PageUpArrow';
 import Layout from '../layouts/Layout.astro';
 import PageWrapper from '../layouts/PageWrapper.astro';
+import { serializeWhy } from '../utils/serializeWhy';
+import { render } from 'astro:content';
 
-const whyText = await getEntry('why', 'why');
+const rawWhy = await getEntry('why', 'why');
+if (!rawWhy) {
+  throw new Error(`Page not found.`);
+}
+
+const whyText = serializeWhy(rawWhy);
+const renderResult = await render(rawWhy);
+if (!renderResult || !renderResult.Content) {
+  throw new Error(`Failed to render content for Why page.`);
+}
+
+const { Content } = renderResult;
 ---
 
 <Layout>
@@ -15,13 +28,8 @@ const whyText = await getEntry('why', 'why');
     <Header />
     <PageUpArrow />
     <PageWrapper>
-      <WhyComponent
-        title={whyText?.data.title}
-        titleAppend={whyText?.data.titleAppend}
-        image={whyText?.data.image}
-        createdAt={whyText?.data.pubDate}
-        content={whyText?.rendered}
-      />
+      <WhyComponent whyContent={whyText} />
+      <Content />
     </PageWrapper>
   </Fragment>
   <Fragment slot="footer">

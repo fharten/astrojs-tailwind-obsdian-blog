@@ -1,10 +1,10 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
+import Header from '../../components/Header.tsx';
 import PageWrapper from '../../layouts/PageWrapper.astro';
-import Footer from '../../components/Footer.astro';
+import Footer from '../../components/Footer.tsx';
 
 const { params } = Astro;
 const slug = params.post;
