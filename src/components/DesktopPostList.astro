@@ -9,7 +9,10 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <h1 class="hidden md:flex h1 mytext-base pt-28 mb-5">ALL POSTS</h1>
-<div class="hidden w-full md:grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:gap-5">
+<div
+  id="post-list"
+  class="hidden w-full md:grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:gap-5"
+>
   {
     posts.map((post: BlogPost) => (
       <DesktopPostSingle
@@ -25,3 +28,5 @@ const posts = (await getCollection('blog')).sort(
     ))
   }
 </div>
+
+<script src="/src/scripts/search.js"></script>

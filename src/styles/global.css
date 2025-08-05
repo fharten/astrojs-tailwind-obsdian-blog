@@ -1,6 +1,4 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
 
 :root {
   --bg-dark: oklch(0.1 0.025 160);
@@ -50,9 +48,13 @@
   --tracking-p-xsmall: 0em;
 }
 
-@layer base {
-  body {
-    @apply font-sans;
+@layer utilities {
+  .font-heading {
+    font-family: Boldonse, sans-serif;
+  }
+
+  .font-body {
+    font-family: Zodiak-Variable, sans-serif;
   }
 }
 
@@ -98,6 +100,9 @@
   }
   .bg-light {
     background-color: var(--bg-light);
+  }
+  .bg-highlight {
+    background-color: var(--highlight);
   }
 
   /* Text colors */
@@ -151,6 +156,9 @@
   .border-info {
     border-color: var(--info);
   }
+  .border-highlight {
+    border-color: var(--highlight);
+  }
 
   /* Highlights */
   .highlight {
@@ -166,6 +174,9 @@
   }
   .light .bg-light {
     background-color: var(--light-mode-bg-light);
+  }
+  .light .bg-highlight {
+    background-color: var(--light-mode-highlight);
   }
 
   .light .mytext-base {
@@ -198,6 +209,9 @@
   }
   .light .border-muted {
     border-color: var(--light-mode-border-muted);
+  }
+  .light .border-highlight {
+    border-color: var(--light-mode-highlight);
   }
 
   .light .highlight {

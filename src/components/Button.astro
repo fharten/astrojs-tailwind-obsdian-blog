@@ -1,0 +1,10 @@
+---
+const { text, search } = Astro.props;
+---
+
+<button
+  type="submit"
+  class={`p-small text-center mytext-base rounded-lg sm:w-fit bg-dark hover:scale-105 hover:bg-base transition-all focus:ring-4 focus:outline-none focus:border-highlight border-muted ${search ? 'absolute end-2.5 bottom-2.5 px-4 py-2' : 'py-3 px-5'}`}
+>
+  {text}
+</button>

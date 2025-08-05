@@ -1,5 +1,5 @@
 ---
-
+import Button from './Button.astro';
 ---
 
 <div slot="head">
@@ -14,7 +14,7 @@
       <input
         type="email"
         id="email"
-        class="shadow-sm border border-gray-300 bg-light mytext-base p-small rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+        class="shadow-sm border border-muted bg-light mytext-base p-small rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
         placeholder="name@offthegrid.com"
         required
       />
@@ -24,7 +24,7 @@
       <input
         type="text"
         id="subject"
-        class="block p-3 w-full p-small mytext-base rounded-lg border border-gray-300 bg-light shadow-sm focus:ring-primary-500 focus:border-primary-500"
+        class="block p-3 w-full p-small mytext-base rounded-lg border border-muted bg-light shadow-sm focus:ring-primary-500 focus:border-primary-500"
         placeholder="If you must. Say what you have to say."
         required
       />
@@ -34,13 +34,9 @@
       <textarea
         id="message"
         rows="6"
-        class="block p-2.5 w-full p-small mytext-base rounded-lg shadow-sm border border-gray-300 bg-light focus:ring-primary-500 focus:border-primary-500"
+        class="block p-2.5 w-full p-small mytext-base rounded-lg shadow-sm border border-muted bg-light focus:ring-primary-500 focus:border-primary-500"
         placeholder="Leave a comment..."></textarea>
     </div>
-    <button
-      type="submit"
-      class="py-3 px-5 p text-center mytext-base rounded-lg bg-primary-700 sm:w-fit bg-light hover:bg-dark hover:scale-105 transition-all focus:ring-4 focus:outline-none focus:ring-primary-300"
-      >Send message</button
-    >
+    <Button text="Send message" />
   </form>
 </div>

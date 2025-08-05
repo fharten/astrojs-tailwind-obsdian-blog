@@ -1,16 +1,17 @@
 ---
-import { Menu, X } from '@lucide/astro';
+import { Menu, Search, X } from '@lucide/astro';
 import ThemeToggle from './ThemeToggle.astro';
+import SearchBar from './SearchBar.astro';
 ---
 
 <div>
   <div class="w-full fixed top-0 z-50">
     <div class="md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
-      <div class="hidden md:grid grid-cols-3 justify-center items-center">
-        <div class="absolute top-10 left-5 z-[60]">
+      <div class="hidden md:grid grid-cols-10 justify-center items-center">
+        <div class="col-span-1 flex justify-start">
           <ThemeToggle />
         </div>
-        <div class="col-span-1 flex justify-start">
+        <div class="col-span-2 flex justify-start">
           <a href="/categories">
             <h1
               class="font-heading mytext-base p-small py-10 text-center hover:scale-105 transition-all"
@@ -19,12 +20,12 @@ import ThemeToggle from './ThemeToggle.astro';
             </h1>
           </a>
         </div>
-        <div class="col-span-1">
+        <div class="col-span-4">
           <a href="/">
             <h1 class="font-heading h1 mytext-base py-10 text-center">OFF THE GRID</h1>
           </a>
         </div>
-        <div class="col-span-1 flex justify-end">
+        <div class="col-span-2 flex justify-end">
           <a href="/why">
             <h1
               class="font-heading mytext-base p-small py-10 text-center hover:scale-105 transition-all"
@@ -32,6 +33,11 @@ import ThemeToggle from './ThemeToggle.astro';
               WHY
             </h1>
           </a>
+        </div>
+        <div class="col-span-1 flex justify-end">
+          <button id="search" class="cursor-pointer hover:scale-110 transition-all">
+            <Search class="w-5 h-5 mytext-base" />
+          </button>
         </div>
       </div>
     </div>
@@ -45,9 +51,11 @@ import ThemeToggle from './ThemeToggle.astro';
         <X class="mytext-muted hidden" id="burger-close-button" />
       </div>
     </div>
+
+    <SearchBar />
+    <script>
+      import { loadSavedTheme } from '../scripts/theme.ts';
+      loadSavedTheme();
+    </script>
   </div>
 </div>
-<script>
-  import { loadSavedTheme } from '../scripts/theme.ts';
-  loadSavedTheme();
-</script>
