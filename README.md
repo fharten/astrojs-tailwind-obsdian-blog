@@ -22,9 +22,11 @@
 
 ## Deployment
 
+<a href="https://astrojs-tailwind-obsdian-blog.vercel.app/" target="_blank">
+  <p>https://astrojs-tailwind-obsdian-blog.vercel.app</p>
+</a>
 <p align="center">
   <a href="https://astrojs-tailwind-obsdian-blog.vercel.app/" target="_blank">
-    <p>https://astrojs-tailwind-obsdian-blog.vercel.app</p>
     <img src="https://raw.githubusercontent.com/fharten/astrojs-tailwind-obsdian-blog/refs/heads/main/public/images/otg_deployed.png" alt='screenshot of deployed site' />
   </a>
 </p>
