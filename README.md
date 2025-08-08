@@ -20,6 +20,15 @@
   </a>
 </p>
 
+## Deployment
+
+<p align="center">
+  <a href="https://astrojs-tailwind-obsdian-blog.vercel.app/" target="_blank">
+    <p>https://astrojs-tailwind-obsdian-blog.vercel.app</p>
+    <img src="https://raw.githubusercontent.com/fharten/astrojs-tailwind-obsdian-blog/refs/heads/main/public/images/otg_deployed.png" alt='screenshot of deployed site' />
+  </a>
+</p>
+
 ## About This Project
 
 My goal was to write blog posts directly in Obsidian and automatically integrate them into the blog.
