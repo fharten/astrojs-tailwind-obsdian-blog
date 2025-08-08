@@ -1,0 +1,29 @@
+---
+const { whyContent } = Astro.props;
+---
+
+<div class="pt-28">
+  <div class="h-72 w-full overflow-hidden md:h-96">
+    <img
+      src={whyContent.data.image.url}
+      alt={whyContent.data.image.alt}
+      class="h-full w-full object-cover"
+    />
+  </div>
+  <div class="flex flex-col space-y-5 px-5 pt-5 md:px-0">
+    <div class="flex justify-end">
+      <p class="mytext-muted p-small">{whyContent.data.createdAt}</p>
+    </div>
+    <div class="flex">
+      <h1 class="mytext-muted h1">{whyContent.data.title.toUpperCase()}</h1>
+      {
+        whyContent.data.titleAppend && (
+          <h1 class="mytext-muted h1 px-2">{whyContent.data.titleAppend.toUpperCase()}</h1>
+        )
+      }
+    </div>
+    <div class="prose max-w-none dark:prose-dark">
+      <slot />
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
-import WhyComponent from '../components/WhyComponent';
+import WhyLayout from '../layouts/WhyLayout.astro';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import PageUpArrow from '../components/PageUpArrow';
@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro';
 import PageWrapper from '../layouts/PageWrapper.astro';
 import { serializeWhy } from '../utils/serializeWhy';
 import { render } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
 
 const rawWhy = await getEntry('why', 'why');
 if (!rawWhy) {
@@ -24,12 +25,14 @@ const { Content } = renderResult;
 ---
 
 <Layout>
+  <BaseHead slot="basehead" title={whyText.data.title} description={whyText.data.description} />
   <Fragment slot="body">
-    <Header />
+    <Header client:load />
     <PageUpArrow />
     <PageWrapper>
-      <WhyComponent whyContent={whyText} />
-      <Content />
+      <WhyLayout whyContent={whyText}>
+        <Content />
+      </WhyLayout>
     </PageWrapper>
   </Fragment>
   <Fragment slot="footer">

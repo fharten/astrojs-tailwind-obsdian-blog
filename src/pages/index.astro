@@ -1,11 +1,10 @@
 ---
 import Hero from '../components/Hero';
-import MobilePostList from '../components/MobilePostList';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header';
 import PageWrapper from '../layouts/PageWrapper.astro';
-import DesktopEditorsChoice from '../components/DesktopEditorsChoice';
-import DesktopPostList from '../components/DesktopPostList';
+import EditorsChoice from '../components/EditorsChoice';
+import PostList from '../components/PostList';
 import PageUpArrow from '../components/PageUpArrow';
 import Footer from '../components/Footer';
 import { getCollection } from 'astro:content';
@@ -34,9 +33,8 @@ const heroPosts = serializePosts(rawHeroPosts);
     <PageUpArrow client:load />
     <PageWrapper>
       <Hero client:load post={heroPosts[0]} />
-      <MobilePostList client:load allPosts={allPosts} />
-      <DesktopEditorsChoice client:load editorsChoicePosts={editorsChoicePosts} />
-      <DesktopPostList client:load allPosts={allPosts} />
+      <EditorsChoice client:load editorsChoicePosts={editorsChoicePosts} />
+      <PostList client:load allPosts={allPosts} />
     </PageWrapper>
   </Fragment>
   <Footer slot="footer" />

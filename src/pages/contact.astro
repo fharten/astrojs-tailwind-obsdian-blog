@@ -9,7 +9,7 @@ import PageWrapper from '../layouts/PageWrapper.astro';
 
 <Layout>
   <Fragment slot="body">
-    <Header />
+    <Header client:load />
     <PageUpArrow />
     <PageWrapper>
       <ContactComponent />

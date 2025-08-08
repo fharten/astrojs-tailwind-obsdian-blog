@@ -3,9 +3,9 @@ import { useStore } from '@nanostores/react';
 import { $posts, loadAllPosts } from '../store/postStore';
 import { $searchQuery, setSearchQuery } from '../store/searchStore';
 import type { BlogPosts, BlogPost } from '../types/BlogPost';
-import DesktopPostSingle from './DesktopPostSingle';
+import PostSingle from './PostSingle';
 
-export default function DesktopPostList({ allPosts }: { allPosts: BlogPosts }) {
+export default function PostList({ allPosts }: { allPosts: BlogPosts }) {
   const storePosts = useStore($posts);
   const searchQuery = useStore($searchQuery);
 
@@ -20,13 +20,13 @@ export default function DesktopPostList({ allPosts }: { allPosts: BlogPosts }) {
 
   return (
     <div>
-      <h1 className="h1 mytext-base mb-5 hidden pt-28 md:flex">ALL POSTS</h1>
+      <h1 className="h1 mytext-base mb-5 flex pt-28">ALL POSTS</h1>
       <div
         id="post-list"
-        className="hidden w-full md:grid md:grid-cols-1 md:gap-5 lg:grid-cols-2 xl:grid-cols-3"
+        className="w-full md:grid md:grid-cols-1 md:gap-5 md:pt-0 lg:grid-cols-2 xl:grid-cols-3"
       >
         {filteredPosts.length > 0 ? (
-          filteredPosts?.map((post: any) => <DesktopPostSingle post={post} key={post.id} />)
+          filteredPosts?.map((post: any) => <PostSingle post={post} key={post.id} />)
         ) : (
           <p className="mytext-base">loading...</p>
         )}

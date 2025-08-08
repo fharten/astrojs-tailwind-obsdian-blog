@@ -20,12 +20,12 @@ type CategorieItem = {
 const categories: CategorieItem[] = [
   { id: 1, name: 'OS', link: 'os', icon: MonitorCog },
   { id: 2, name: 'Phone', link: 'phone', icon: Smartphone },
-  { id: 3, name: 'Cloud', link: 'cloud', icon: Cloudy },
+  // { id: 3, name: 'Cloud', link: 'cloud', icon: Cloudy },
   { id: 4, name: 'Selfhost', link: 'selfhost', icon: Server },
-  { id: 5, name: 'Open Source', link: 'opensource', icon: Code },
-  { id: 6, name: 'Privacy', link: 'privacy', icon: Lock },
+  // { id: 5, name: 'Open Source', link: 'opensource', icon: Code },
+  // { id: 6, name: 'Privacy', link: 'privacy', icon: Lock },
   { id: 7, name: 'Email', link: 'email', icon: Mail },
-  { id: 8, name: 'Big Tech', link: 'bigtech', icon: Cctv },
+  // { id: 8, name: 'Big Tech', link: 'bigtech', icon: Cctv },
 ];
 
 export default function CategoryCard() {

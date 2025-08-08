@@ -8,6 +8,7 @@ export function serializeWhy(rawWhy: RawWhy): SerializedWhy {
     data: {
       title: rawWhy.data.title,
       titleAppend: rawWhy.data.titleAppend ?? null,
+      description: rawWhy.data.description,
       createdAt: rawWhy.data.pubDate ? rawWhy.data.pubDate.toLocaleDateString() : null,
       image: {
         url: rawWhy.data.image.url,

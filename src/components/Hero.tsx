@@ -23,17 +23,17 @@ export default function Hero({ post }: { post: BlogPost }) {
       id="wrapper"
     >
       <img
-        src="/images/hero/top.jpg"
+        src="/images/hero/top.png"
         className={`image ${scrolled ? 'scrolled-hero-top' : ''}`}
         alt="Top Image"
       />
       <img
-        src="/images/hero/bottom.jpg"
+        src="/images/hero/bottom.png"
         className={`image ${scrolled ? 'scrolled-hero-bottom' : ''}`}
       />
       <div className="absolute top-1/2 left-1/2 z-[1] flex h-28 w-full -translate-x-1/2 -translate-y-1/2 flex-col">
         <a href={`/blog/${slug}`} className="transition-all md:hover:scale-105">
-          <div className="p-5">
+          <div className="md:p-5">
             <p className="mytext-base h2 text-center">{title}</p>
             <p className="mytext-muted p text-center">{description}</p>
           </div>

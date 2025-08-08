@@ -1,11 +1,14 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@config "../../tailwind.config.ts";
 
 :root {
   --bg-dark: oklch(0.1 0.025 160);
   --bg: oklch(0.15 0.025 160);
   --bg-light: oklch(0.2 0.025 160);
-  --text: oklch(0.96 0.05 160);
+  --text: oklch(93.736% 0.03311 54.071);
   --mytext-muted: oklch(0.76 0.05 160);
+  --mytext-light-muted: oklch(0.26 0.05 160);
   --highlight: oklch(0.5 0.05 160);
   --border: oklch(0.4 0.05 160);
   --border-muted: oklch(0.3 0.05 160);
@@ -31,21 +34,98 @@
   --light-mode-success: oklch(0.5 0.05 160);
   --light-mode-info: oklch(0.5 0.05 260);
 
-  --font-size-h1: 1.625rem;
-  --line-height-h1: 120%;
-  --tracking-h1: -0.015em;
-  --font-size-h2: 1.375;
-  --line-height-h2: 135%;
-  --tracking-h2: -0.01em;
-  --font-size-p: 1.25rem;
+  --font-size-h1: 1.5rem;
+  --line-height-h1: 100%;
+  --tracking-h1: -2%;
+  --font-size-h2: 1.125rem;
+  --line-height-h2: 120%;
+  --tracking-h2: -1.5%;
+  --font-size-p: 1rem;
   --line-height-p: 150%;
   --tracking-p: 0em;
-  --font-size-p-small: 1.125;
-  --line-height-p-small: 150%;
+  --font-size-p-small: 0.875rem;
+  --line-height-p-small: 160%;
   --tracking-p-small: 0em;
-  --font-size-p-xsmall: 1rem;
+  --font-size-p-xsmall: 0.75rem;
   --line-height-p-xsmall: 170%;
   --tracking-p-xsmall: 0em;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(to right, var(--border-muted) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-muted) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  filter: blur(2px);
+
+  mask-image:
+    radial-gradient(
+      circle at top left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 20%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 1) 60%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 20%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 1) 60%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 20%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 1) 60%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 20%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 1) 60%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      circle at top left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 20%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 1) 60%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 20%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 1) 60%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 20%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 1) 60%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 20%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 1) 60%
+    );
+
+  mask-composite: intersect;
+  -webkit-mask-composite: destination-in;
 }
 
 @layer utilities {
@@ -111,6 +191,9 @@
   }
   .mytext-muted {
     color: var(--mytext-muted);
+  }
+  .mytext-muted-light {
+    color: var(--mytext-light-muted);
   }
   .mytext-primary {
     color: var(--primary);
@@ -219,10 +302,33 @@
   }
 }
 
+/* Hover */
+.group:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.group:hover .bg-light {
+  background-color: var(--light-mode-bg-dark);
+  transition: all 0.3s ease-in-out;
+}
+
+.group:hover .bg-dark {
+  background-color: var(--light-mode-bg-light);
+  transition: all 0.3s ease-in-out;
+}
+
+.group:hover .mytext-muted {
+  color: var(--light-mode-mytext-muted);
+}
+
+.group:hover .mytext-base {
+  color: var(--light-mode-text);
+}
+
 .image {
   height: 49vh;
   width: 99%;
-  object-fit: cover;
+  /* object-fit: cover; */
   position: relative;
   z-index: 5;
   transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -234,6 +340,12 @@
 }
 .scrolled-hero-bottom {
   transform: translateY(79px);
+}
+
+@media (max-width: 1600px) {
+  .scrolled-hero-bottom {
+    transform: translateY(140px);
+  }
 }
 
 .scrolled {
