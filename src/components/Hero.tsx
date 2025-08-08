@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { BlogPost } from '../types/BlogPost';
 
-export default function Hero({ post }: { post: BlogPost }) {
+export default function Hero({ post }: { post: BlogPost | null }) {
+  if (!post) return null;
+
   const [scrolled, setScrolled] = useState<boolean>(false);
   const { title, description, category, categoryLink, slug, createdAt } = post.data;
 

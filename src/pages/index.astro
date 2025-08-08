@@ -28,6 +28,7 @@ if (!rawPosts || !rawEditorsChoicePosts || !rawHeroPosts) {
 const allPosts = serializePosts(rawPosts);
 const editorsChoicePosts = serializePosts(rawEditorsChoicePosts);
 const heroPosts = serializePosts(rawHeroPosts);
+const heroPost = heroPosts.length > 0 ? heroPosts[0] : null;
 ---
 
 <Layout>
@@ -36,7 +37,7 @@ const heroPosts = serializePosts(rawHeroPosts);
     <Header client:load />
     <PageUpArrow client:load />
     <PageWrapper>
-      <Hero client:load post={heroPosts[0]} />
+      <Hero client:load post={heroPost} />
       <EditorsChoice client:load editorsChoicePosts={editorsChoicePosts} />
       <PostList client:load allPosts={allPosts} />
     </PageWrapper>
