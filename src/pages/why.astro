@@ -15,6 +15,10 @@ if (!rawWhy) {
   throw new Error(`Page not found.`);
 }
 
+if (!rawWhy) {
+  throw new Error(`Page content not found.`);
+}
+
 const whyText = serializeWhy(rawWhy);
 const renderResult = await render(rawWhy);
 if (!renderResult || !renderResult.Content) {

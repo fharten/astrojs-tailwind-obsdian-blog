@@ -21,6 +21,10 @@ const rawEditorsChoicePosts = (await getCollection('blog'))
 
 const rawHeroPosts = (await getCollection('blog')).filter((post) => post.data.hero === true);
 
+if (!rawPosts || !rawEditorsChoicePosts || !rawHeroPosts) {
+  throw new Error(`Post not found.`);
+}
+
 const allPosts = serializePosts(rawPosts);
 const editorsChoicePosts = serializePosts(rawEditorsChoicePosts);
 const heroPosts = serializePosts(rawHeroPosts);
