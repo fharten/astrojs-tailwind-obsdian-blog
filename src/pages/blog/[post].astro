@@ -2,7 +2,8 @@
 import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.tsx';
+import Header from '../../components/Header';
+import PageUpArrow from '../../components/PageUpArrow';
 import PageWrapper from '../../layouts/PageWrapper.astro';
 import Footer from '../../components/Footer.tsx';
 
@@ -28,7 +29,7 @@ const { Content } = await render(post);
 
 <Layout>
   <Fragment slot="body">
-    <Header />
+    <Header client:load />
     <PageWrapper>
       <BlogPost
         title={post.data.title}
@@ -42,6 +43,7 @@ const { Content } = await render(post);
       >
         <Content />
       </BlogPost>
+      <PageUpArrow client:load />
     </PageWrapper>
   </Fragment>
   <Fragment slot="footer">

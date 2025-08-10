@@ -42,7 +42,7 @@ const categoryPosts = serializePosts(posts);
     description="An overview of all post categories."
   />
   <Fragment slot="body">
-    <Header />
+    <Header client:load />
     <PageWrapper>
       <div class="w-full pt-28 md:grid md:grid-cols-1 md:gap-5 lg:grid-cols-2 xl:grid-cols-3">
         {
