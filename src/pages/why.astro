@@ -32,7 +32,7 @@ const { Content } = renderResult;
   <BaseHead slot="basehead" title={whyText.data.title} description={whyText.data.description} />
   <Fragment slot="body">
     <Header client:load />
-    <PageUpArrow />
+    <PageUpArrow client:load />
     <PageWrapper>
       <WhyLayout whyContent={whyText}>
         <Content />

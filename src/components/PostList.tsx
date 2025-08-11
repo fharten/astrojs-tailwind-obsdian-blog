@@ -28,7 +28,7 @@ export default function PostList({ allPosts }: { allPosts: BlogPosts }) {
         {filteredPosts.length > 0 ? (
           filteredPosts?.map((post: any) => <PostSingle post={post} key={post.id} />)
         ) : (
-          <p className="mytext-base">loading...</p>
+          <p className="mytext-base">No posts found.</p>
         )}
       </div>
     </div>

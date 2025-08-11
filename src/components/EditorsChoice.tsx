@@ -20,12 +20,16 @@ export default function EditorsChoice({ editorsChoicePosts }: { editorsChoicePos
 
   return (
     <>
-      <h1 className="h1 mytext-base mb-5 hidden pt-28 md:flex">EDITOR'S CHOICE</h1>
-      <div className="hidden w-full md:grid md:grid-cols-1 md:gap-5 lg:grid-cols-2 xl:grid-cols-3">
-        {filteredPosts.map((post: BlogPost) => (
-          <PostSingle key={post.id} post={post} />
-        ))}
-      </div>
+      {!searchQuery && (
+        <>
+          <h1 className="h1 mytext-base mb-5 hidden pt-28 md:flex">EDITOR'S CHOICE</h1>
+          <div className="hidden w-full md:grid md:grid-cols-1 md:gap-5 lg:grid-cols-2 xl:grid-cols-3">
+            {filteredPosts.map((post: BlogPost) => (
+              <PostSingle key={post.id} post={post} />
+            ))}
+          </div>
+        </>
+      )}
     </>
   );
 }
