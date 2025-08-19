@@ -25,9 +25,8 @@
 <a href="https://astrojs-tailwind-obsdian-blog.vercel.app/" target="_blank">
   <p>https://astrojs-tailwind-obsdian-blog.vercel.app</p>
 </a>
-<div align="center">
-    ![screenshot of deployed site](https://raw.githubusercontent.com/fharten/astrojs-tailwind-obsdian-blog/refs/heads/main/public/images/otg_deployed.png)
-</div>
+
+![screenshot of deployed site](https://raw.githubusercontent.com/fharten/astrojs-tailwind-obsdian-blog/refs/heads/main/public/images/otg_deployed.png)
 
 ## About This Project
 
