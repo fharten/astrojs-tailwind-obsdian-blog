@@ -27,7 +27,7 @@
 </a>
 <p align="center">
   <a href="https://astrojs-tailwind-obsdian-blog.vercel.app/" target="_blank">
-    <img src="https://raw.githubusercontent.com/fharten/astrojs-tailwind-obsdian-blog/refs/heads/main/public/images/otg_deployed.png" alt='screenshot of deployed site' />
+    ![screenshot of deployed site]([http://url/to/img.png](https://raw.githubusercontent.com/fharten/astrojs-tailwind-obsdian-blog/refs/heads/main/public/images/otg_deployed.png))
   </a>
 </p>
 
