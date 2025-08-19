@@ -26,7 +26,7 @@
   <p>https://astrojs-tailwind-obsdian-blog.vercel.app</p>
 </a>
 <div align="center">
-   <img src="https://raw.githubusercontent.com/fharten/astrojs-tailwind-obsdian-blog/refs/heads/main/public/images/otg_deployed.png" alt='screenshot of deployed site' />
+   <img src="https://github.com/fharten/astrojs-tailwind-obsdian-blog/blob/main/public/demo/otg_deployed.png" alt='screenshot of deployed site' />
 </div>
 
 ## About This Project
