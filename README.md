@@ -20,8 +20,6 @@
   </a>
 </p>
 
-<<<<<<< HEAD
-=======
 ## Deployment
 
 <a href="https://astrojs-tailwind-obsdian-blog.vercel.app/" target="_blank">
@@ -33,7 +31,6 @@
   </a>
 </p>
 
->>>>>>> 93a619a (added link to README)
 ## About This Project
 
 My goal was to write blog posts directly in Obsidian and automatically integrate them into the blog.
